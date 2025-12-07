@@ -2,6 +2,8 @@ import os
 import shutil
 import subprocess
 import sys
+import time
+import requests
 
 # Configuration
 Q_BIN_FOLDER = "/home/john/.local/bin/"
@@ -287,6 +289,40 @@ def stop_all_docker():
         capture_output=True
     )
 
+def rebuild_docker_if_exists():
+    """Rebuild docker services if docker-compose.yml exists"""
+    docker_compose_path = os.path.join(DEMO_APP, "docker-compose.yml")
+    if os.path.exists(docker_compose_path):
+        print("Found docker-compose.yml, rebuilding services...")
+        subprocess.run(
+            "docker compose down -v && docker compose up --build -d --remove-orphans",
+            shell=True,
+            cwd=DEMO_APP,
+            capture_output=True
+        )
+        wait_for_database()
+
+def wait_for_database():
+    """Wait for database to be ready"""
+    print("Waiting for database to be ready...")
+    db_retries = 10
+    while db_retries > 0:
+        try:
+            response = requests.post(
+                'http://localhost:3001/api/login',
+                headers={'Content-Type': 'application/json'},
+                json={'username': 'bob', 'password': 'password'},
+                timeout=5
+            )
+            if response.text == '0':
+                print("Database is ready")
+                return
+        except:
+            pass
+        time.sleep(3)
+        db_retries -= 1
+    print("Warning: Database may not be ready")
+
 def run_amazonq(prompt):
     """Step 3 & 4: Run AmazonQ CLI with prompt, log output"""
     log_file = os.path.join(DEMO_APP, "LOG.txt")
@@ -447,6 +483,9 @@ def main():
                 
                 # Step 2.5: Stop all docker containers
                 stop_all_docker()
+                
+                # Step 2.6: Rebuild docker if docker-compose.yml exists
+                rebuild_docker_if_exists()
                 
                 # Step 3 & 4: Run AmazonQ
                 run_amazonq(prompt)
