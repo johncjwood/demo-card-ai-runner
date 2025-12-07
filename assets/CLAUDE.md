@@ -1,8 +1,5 @@
 # Instructions for Claude Code
 
-## Further Context ##
-Check the ./ai folder for the PROJECT.md file amongst other context files.
-
 ## Workflow Requirements
 
 Every time a request is made, follow these steps:
@@ -13,12 +10,7 @@ Every time a request is made, follow these steps:
 - Update the checklist as work progresses by marking completed items with `- [x]`
 - At the bottom of the checklist, create a copy of the original prompt that was passed in by the user.
 
-### 2. First Item: Clarifying Questions
-- The first item on every checklist must be: "Ask top 3 clarifying questions"
-- Identify and ask the 3 most important clarifying questions about the request
-- Mark this item complete once questions are asked and answered
-
-### 3. Task Execution
+### 2. Task Execution
 - Work through the checklist in order
 - Mark each item complete with `[x]` when finished
 - Keep the checklist updated throughout the workflow
@@ -28,7 +20,7 @@ Every time a request is made, follow these steps:
 ```markdown
 # Checklist
 
-- [ ] Ask top 3 clarifying questions
+- [ ] Task item 1
 - [ ] Task item 2
 - [ ] Task item 3
 - [x] Completed task example
