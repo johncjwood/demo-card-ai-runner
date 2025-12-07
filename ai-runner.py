@@ -245,6 +245,9 @@ def main():
                 # Step 6: Append results
                 append_results(requirement, level, context, success)
                 
+                # Update in-memory results
+                results[(requirement, level, context)] = 1 if success else 0
+                
                 # Step 7: Rename folder
                 rename_demo_app(requirement, level, context, success)
                 

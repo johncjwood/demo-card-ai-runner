@@ -1,10 +1,17 @@
 # Checklist
 
 - [x] Ask top 3 clarifying questions
-- [x] Review test-runner.js exit behavior
-- [x] Review ai-runner.py test result detection logic
-- [x] Fix ai-runner.py to correctly detect test failures
+- [x] Review current test execution logic
+- [x] Fix the logic to skip higher C values when a lower C succeeds
+- [ ] Verify the fix works correctly
 
-## User's Original Prompt
+## Original User Prompt
 
-My LOG.txt file says all tests completed successfully but results.csv says it failed. Is the ai-runner.py correctly figuring out if tests failed or not? Maybe we need to fix the test script in ./assets/testing to return a code that says if the tests were successful or not.
+I see this output:
+unning R0/L1/C1...
+Completed R0/L1/C1 - PASS
+Running R0/L1/C2...
+Completed R0/L1/C2 - PASS
+Running R0/L1/C3...
+
+However, the logic should be that if a lower L or C succeeds, then the later ones should be skipped. In this case, R0/L1/C1 succeeded, so R0/L1/C2 should not have run since C2 is higher than C1
