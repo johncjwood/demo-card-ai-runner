@@ -171,15 +171,12 @@ def should_skip(requirement, level, context, results):
     current_level_idx = level_order.index(level)
     current_context_idx = context_order.index(context)
     
-    # Check smaller L levels with same context
-    for i in range(current_level_idx):
-        if results.get((requirement, level_order[i], context)) == 1:
-            return True
-    
-    # Check smaller C levels with same L
-    for i in range(current_context_idx):
-        if results.get((requirement, level, context_order[i])) == 1:
-            return True
+    # Check any smaller (L, C) combination
+    for i in range(current_level_idx + 1):
+        for j in range(current_context_idx + 1):
+            if i < current_level_idx or j < current_context_idx:
+                if results.get((requirement, level_order[i], context_order[j])) == 1:
+                    return True
     
     return False
 
