@@ -260,7 +260,7 @@ TEST_COMMANDS = {
 }
 
 # Define contexts
-CONTEXTS = ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11", "C12"]
+CONTEXTS = ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9"]
 
 def copy_demo_app():
     """Step 1: Copy demo-card-app-orig to demo-card-app"""
@@ -269,7 +269,7 @@ def copy_demo_app():
     if os.path.exists(DEMO_APP_ORIG):
         shutil.copytree(DEMO_APP_ORIG, DEMO_APP)
 
-def copy_context(context):
+def copy_context(context, requirement=None):
     """Step 2: Copy context files based on context level"""
     if context == "C1":
         pass  # Nothing to copy for C1
@@ -280,6 +280,146 @@ def copy_context(context):
             os.path.join(ASSETS_FOLDER, "CLAUDE_PERSONA.md"),
             os.path.join(rules_folder, "CLAUDE_PERSONA.md")
         )
+    elif context == "C3":
+        rules_folder = os.path.join(DEMO_APP, ".amazonq", "rules")
+        os.makedirs(rules_folder, exist_ok=True)
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "CLAUDE_CHECKLIST.md"),
+            os.path.join(rules_folder, "CLAUDE_CHECKLIST.md")
+        )
+    elif context == "C4":
+        rules_folder = os.path.join(DEMO_APP, ".amazonq", "rules")
+        os.makedirs(rules_folder, exist_ok=True)
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "CLAUDE_CHECKLIST.md"),
+            os.path.join(rules_folder, "CLAUDE_CHECKLIST.md")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "PROJECT.md"),
+            os.path.join(rules_folder, "PROJECT.md")
+        )
+    elif context == "C5":
+        rules_folder = os.path.join(DEMO_APP, ".amazonq", "rules")
+        os.makedirs(rules_folder, exist_ok=True)
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "CLAUDE_CHECKLIST.md"),
+            os.path.join(rules_folder, "CLAUDE_CHECKLIST.md")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "PROJECT.md"),
+            os.path.join(rules_folder, "PROJECT.md")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "CTAS.sql"),
+            os.path.join(rules_folder, "CTAS.sql")
+        )
+    elif context == "C6":
+        rules_folder = os.path.join(DEMO_APP, ".amazonq", "rules")
+        os.makedirs(rules_folder, exist_ok=True)
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "CLAUDE_CHECKLIST.md"),
+            os.path.join(rules_folder, "CLAUDE_CHECKLIST.md")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "PROJECT.md"),
+            os.path.join(rules_folder, "PROJECT.md")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "DBConnect.md"),
+            os.path.join(rules_folder, "DBConnect.md")
+        )
+    elif context == "C7":
+        rules_folder = os.path.join(DEMO_APP, ".amazonq", "rules")
+        os.makedirs(rules_folder, exist_ok=True)
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "CLAUDE_CHECKLIST.md"),
+            os.path.join(rules_folder, "CLAUDE_CHECKLIST.md")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "PROJECT.md"),
+            os.path.join(rules_folder, "PROJECT.md")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "DBScripts.md"),
+            os.path.join(rules_folder, "DBScripts.md")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "run_query.py"),
+            os.path.join(DEMO_APP, "run_query.py")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "schema_search.py"),
+            os.path.join(DEMO_APP, "schema_search.py")
+        )
+    elif context == "C8":
+        rules_folder = os.path.join(DEMO_APP, ".amazonq", "rules")
+        os.makedirs(rules_folder, exist_ok=True)
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "CLAUDE_CHECKLIST.md"),
+            os.path.join(rules_folder, "CLAUDE_CHECKLIST.md")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "PROJECT.md"),
+            os.path.join(rules_folder, "PROJECT.md")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "DBScripts.md"),
+            os.path.join(rules_folder, "DBScripts.md")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "STARTSERVICE.md"),
+            os.path.join(rules_folder, "STARTSERVICE.md")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "run_query.py"),
+            os.path.join(DEMO_APP, "run_query.py")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "schema_search.py"),
+            os.path.join(DEMO_APP, "schema_search.py")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "start_service.py"),
+            os.path.join(DEMO_APP, "start_service.py")
+        )
+    elif context == "C9":
+        rules_folder = os.path.join(DEMO_APP, ".amazonq", "rules")
+        os.makedirs(rules_folder, exist_ok=True)
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "CLAUDE_CHECKLIST.md"),
+            os.path.join(rules_folder, "CLAUDE_CHECKLIST.md")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "PROJECT.md"),
+            os.path.join(rules_folder, "PROJECT.md")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "DBScripts.md"),
+            os.path.join(rules_folder, "DBScripts.md")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "run_query.py"),
+            os.path.join(DEMO_APP, "run_query.py")
+        )
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "schema_search.py"),
+            os.path.join(DEMO_APP, "schema_search.py")
+        )
+        # Copy TESTING.md with test command prepended
+        testing_md_src = os.path.join(ASSETS_FOLDER, "TESTING.md")
+        testing_md_dst = os.path.join(rules_folder, "TESTING.md")
+        with open(testing_md_src, "r") as src:
+            content = src.read()
+        test_cmd = TEST_COMMANDS.get(requirement, "")
+        with open(testing_md_dst, "w") as dst:
+            dst.write(f"# Test Command\n\nThis should be what you run to test this prompt:\n```\n{test_cmd}\n```\n\n")
+            dst.write(content)
+        # Copy testing folder
+        testing_src = os.path.join(ASSETS_FOLDER, "testing")
+        testing_dst = os.path.join(DEMO_APP, "testing")
+        if os.path.exists(testing_dst):
+            shutil.rmtree(testing_dst)
+        shutil.copytree(testing_src, testing_dst)
 
 def stop_all_docker():
     """Stop all running docker containers"""
@@ -420,7 +560,7 @@ def load_results():
 def should_skip(requirement, level, context, results):
     """Check if test should be skipped based on smaller L or C success"""
     level_order = ["L1", "L2", "L3"]
-    context_order = ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11", "C12"]
+    context_order = ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9"]
     
     current_level_idx = level_order.index(level)
     current_context_idx = context_order.index(context)
@@ -479,7 +619,7 @@ def main():
                 copy_demo_app()
                 
                 # Step 2: Copy context
-                copy_context(context)
+                copy_context(context, requirement)
                 
                 # Step 2.5: Stop all docker containers
                 stop_all_docker()
