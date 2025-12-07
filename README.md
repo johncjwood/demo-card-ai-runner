@@ -7,3 +7,5 @@ Assumptions:
 export Q_FAKE_IS_REMOTE=1
 q login
 (The export is only necessary if you have SSO auth or equivalent)
+4) To run the tests. run:
+python3 ai-runner.py

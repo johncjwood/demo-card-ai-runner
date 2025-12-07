@@ -63,12 +63,16 @@ def copy_context(context):
         )
 
 def run_amazonq(prompt):
-    """Step 3 & 4: Run AmazonQ CLI with prompt in unsafe mode, log output"""
+    """Step 3 & 4: Run AmazonQ CLI with prompt, log output"""
     log_file = os.path.join(DEMO_APP, "LOG.txt")
     
-    # AmazonQ CLI command with unsafe mode
+    # AmazonQ CLI command
     q_cmd = os.path.join(Q_BIN_FOLDER, "q")
-    cmd = [q_cmd, "chat", "--unsafe", "--prompt", prompt]
+    cmd = [q_cmd, "chat", "--trust-all-tools", "--no-interactive", "--prompt", prompt]
+    
+    # Inherit environment and add Q_FAKE_IS_REMOTE if needed
+    env = os.environ.copy()
+    env["Q_FAKE_IS_REMOTE"] = "1"
     
     with open(log_file, "w") as f:
         result = subprocess.run(
@@ -76,7 +80,8 @@ def run_amazonq(prompt):
             cwd=DEMO_APP,
             stdout=f,
             stderr=subprocess.STDOUT,
-            text=True
+            text=True,
+            env=env
         )
     
     return result.returncode == 0
