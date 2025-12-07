@@ -17,15 +17,232 @@ PROMPTS = {
     "R0": {"L1": "No prompt.", "L2": "No prompt.", "L3": "No prompt."},
     "R1": {
         "L1": "On the initial page, we see -1 as the total cards. \nUpdate it to be -2.",
-        "L2": "On the dashboard page, the default behavior is to display -1 as the total cards. \nUpdate it to be -2.",
-        "L3": ""  # To be provided
+        "L2": """On the dashboard page, the default behavior is to display -1 as the total cards. 
+        \nUpdate it to be -2."""
+        ,"L3": """On the /dashboard page in the Angular code in the ./frontend folder, 
+        the default placeholder in dashboard.component.ts for the total cards is -1. 
+        \nUpdate the default placeholder from -1 to be -2."""
     },
-    "R2": {"L1": "", "L2": "", "L3": ""},
-    "R3": {"L1": "", "L2": "", "L3": ""},
-    "R4": {"L1": "", "L2": "", "L3": ""},
-    "R5": {"L1": "", "L2": "", "L3": ""},
-    "R6": {"L1": "", "L2": "", "L3": ""},
-    "R7": {"L1": "", "L2": "", "L3": ""}
+    "R2": {"L1": """
+On the initial page, we see -1 as the total cards. 
+Update it to be the real amount.
+"""
+           , "L2": """
+I'm working on the dashboard component and noticed it's hardcoded to show -1 for total cards. I need to:
+
+Create an API endpoint in the Node.js backend that queries the database for the card count
+
+Update the Angular dashboard component to call this new endpoint
+
+Display the returned count in the UI instead of the -1 placeholder
+I think I need to modify the service layer on the frontend and add a new route in the REST API, but I'm not sure which specific files handle the dashboard data.
+"""
+           , "L3": """
+The DashboardComponent is rendering a hardcoded -1 value for totalCards. Need to implement proper card count aggregation:
+
+Backend:
+
+Add GET /api/cards/count endpoint in the Express router
+
+Implement COUNT(*) query against the cards table in PostgreSQL
+
+Return JSON response with total count
+
+Frontend:
+
+Update CardService (or equivalent data service) to add getCardCount() method that hits the new endpoint
+
+Modify DashboardComponent ngOnInit() lifecycle hook to subscribe to the Observable
+
+Bind the response to the totalCards property for template interpolation
+
+Files likely affected: rest/src/routes/cards.js, rest/src/controllers/cardsController.js, frontend/src/app/services/card.service.ts, frontend/src/app/dashboard/dashboard.component.ts
+"""
+           }
+    ,"R3": {"L1": """
+the shopping cart thing is letting people add way more cards than we actually have lol. like if someone just keeps clicking the plus button they can add infinite cards even tho we only have like 5 in stock or whatever. can you make it stop doing that? 
+it should probably just not let them add more once they hit the max we have
+"""
+           , "L2": """
+There's a bug in the cart functionality where users can increment item quantities beyond available inventory. 
+The frontend increment button doesn't check against the inventory count from the backend before updating the cart state. 
+We need to add validation so that when a user clicks the + button on a card in the cart, it checks the inventory table and prevents the cart quantity from exceeding the available stock. 
+This should involve updating the cart component logic and possibly the API endpoint that handles cart updates.
+"""
+           , "L3": """
+The cart component's increment handler lacks inventory constraint validation. Need to implement a check in the CartService's updateQuantity method that queries the cards table's inventory_count column before allowing increments. 
+The Angular cart component should stop incrementing the quantity when cart_items.quantity would exceed cards.inventory_count. This requires:
+
+Modifying the PUT /api/cart/items/:id endpoint to return 400 when requested quantity > inventory
+Updating the CartComponent's incrementItem() method to handle this validation response
+Optionally, enriching the GET /api/cart response to include available_inventory per item for client-side button state management
+Consider race conditions if multiple users are checking out simultaneously
+"""
+           }
+    ,"R4": {"L1": """
+hey so the tax thing on checkout isn't right... it's just doing 5% for everyone but it should be different based on where people live. can you make it so it checks what state they're in and does the tax differently? like some states should be 10% (the expensive ones like california and new york and stuff) and the rest should be 7%. 
+the state info should be somewhere in their profile i think
+"""
+           , "L2": """
+I need to update the checkout page tax calculation logic. Currently it's hardcoded to 5%, but we need to make it dynamic based on the user's state.
+
+Here's what needs to happen:
+- The frontend checkout component needs to get the user's state from their profile
+- We'll need to add logic (probably in the API layer) to calculate tax based on state
+- For CA, MA, NY, NC, and IL → use 10% tax rate
+- For all other states → use 7% tax rate
+
+I think this will involve updating the checkout component, maybe adding a new API endpoint or modifying an existing one, and possibly updating the user profile query to include the state field. The tax calculation should probably happen on the backend to keep it secure.
+
+"""
+           , "L3": """
+Refactor the tax calculation logic in the checkout flow to implement state-based tax rates:
+
+**Backend Changes:**
+- Modify the checkout API endpoint (likely POST /api/checkout or /api/orders) in the Express route handler
+- Add a JOIN to the user profile query to retrieve the `state` column from the `users` or `user_profiles` table
+- Implement tax rate calculation logic: HIGH_TAX_STATES = ['CA', 'MA', 'NY', 'NC', 'IL'] → 0.10, DEFAULT → 0.07
+- Update the order calculation service to apply the dynamic tax rate instead of the hardcoded 0.05
+
+**Frontend Changes:**
+- Update the CheckoutComponent to ensure the tax rate displayed reflects the backend calculation
+- Remove any hardcoded 5% tax rate constants from the component TypeScript and template
+- Ensure the order summary properly binds to the tax amount returned from the API response
+
+**Database:**
+- Verify the `state` column exists in the user profile schema (likely `user_profiles.state` or `users.state`)
+- If missing, add migration to `./db/99 Additional.sql` to add the column
+
+The tax calculation should be server-authoritative to prevent client-side manipulation.
+"""
+           }
+    ,"R5": {"L1": """
+Hey, so like... we need another goal thing? Right now there's just the one that counts all the cards, but I want one that only counts the different ones, not duplicates or whatever. Can you make it show up in that dropdown menu where you pick the goal type? And then make sure it actually works when you add it - like the percentage bar should be right and stuff. 
+Oh and the dashboard needs to know about it too for the completed goals counter thing.
+"""
+           , "L2": """
+We need to add a new goal type called 'Total Unique' that counts unique cards instead of total cards. Here's what needs to happen:
+
+Update the frontend dropdown component to include the new goal type option
+
+Add the calculation logic in the backend API endpoint that processes goals
+
+Make sure the Goals page displays the progress percentage correctly when rendering this goal type
+
+Update the Dashboard component so it counts completed goals properly with this new type
+
+I think we'll need to modify the goal service on the backend, update the Angular component that has the dropdown, and maybe adjust the database query to use COUNT(DISTINCT) or something similar.
+"""
+           , "L3": """
+Implement a new goal_type enum value 'total_unique' for distinct card collection tracking. Required changes:
+
+Database Layer:
+
+Add 'total_unique' to goal_type enum in the goals table schema
+
+Implement COUNT(DISTINCT card_id) aggregation in the goal calculation query
+
+REST API (Node.js):
+
+Update GoalService.calculateProgress() method to handle 'total_unique' case with distinct card count logic
+
+Modify GET /api/goals endpoint response to include correct progress calculation
+
+Ensure POST /api/goals validation accepts the new goal_type
+
+Frontend (Angular):
+
+Add 'total_unique' option to the GoalType enum/interface
+
+Update goal-form.component.ts dropdown options array
+
+Modify goals.component.ts to render progress bars using the API-calculated percentage
+
+Update dashboard.component.ts aggregation logic for completed goals count to include 'total_unique' type in the filter
+
+The calculation should query user_cards table with SELECT COUNT(DISTINCT card_id) WHERE user_id = ? and compare against the goal target value.
+"""
+           }
+    ,"R6": {"L1": """
+hey so i want to add a new goal thing that counts cards that have like 4 or more of something? it should be called 'Total Above 4' or whatever. basically i need it to show up in that dropdown where you pick the goal type, and then it needs to actually work and count right. oh and make sure it shows up on the goals page with the percentage bar thing, and also the dashboard needs to update when goals are done. thanks!
+"""
+           , "L2": """
+I need to implement a new goal type feature called 'Total Above 4' that counts cards with a minimum count of 4. Here's what needs to happen:
+
+Add 'Total Above 4' as an option in the Goal Type dropdown on the frontend
+
+Write the calculation logic in the backend API to count cards where count >= 4
+
+Make sure the Goals page displays the new goal card with the progress percentage calculated correctly
+
+Update the Dashboard page so it shows the correct number of completed goals including this new type
+
+I think this will involve changes to the Angular components for the dropdown and pages, the Node.js API endpoints for the calculation, and probably the database to store the new goal type.
+"""
+           , "L3": """
+Implement a new GoalType enum value 'TOTAL_ABOVE_4' with the following requirements:
+
+Database Layer:
+
+Insert new goal_type record in the goal_types table via ./db/99 Additional.sql
+
+Ensure goal_type_id and display_name ('Total Above 4') are properly defined
+
+Backend (Node.js/Express):
+
+Update GoalType enum/constants in the goals service/model
+
+Modify the calculateGoalProgress function to handle TOTAL_ABOVE_4 logic: SELECT COUNT(*) FROM cards WHERE count >= 4
+
+Ensure GET /api/goals and GET /api/goals/:id endpoints return correct current_value and progress_percentage
+
+Verify POST /api/goals accepts the new goal type
+
+Frontend (Angular):
+
+Update the GoalType enum in goal.model.ts or equivalent TypeScript interface
+
+Modify the goal-form component's goalTypes array to include the new option for the mat-select/dropdown
+
+Ensure the goals-list component's progress calculation and mat-progress-bar rendering handles the new type
+
+Verify the dashboard component's getCompletedGoalsCount() method correctly aggregates goals where progress_percentage >= 100
+
+All changes should maintain type safety across the full stack and follow existing patterns for goal type implementations.
+"""
+           }
+    ,"R7": {"L1": """
+hey so i want to add like a star thing next to people's names when they buy a lot of stuff. like if someone spends over 100 bucks they should get a cool star or something to show they're special. can you make that happen? it should show up on their profile page
+"""
+           , "L2": """
+I need to implement a VIP badge feature for the user profile component. The requirement is to display a star icon next to the username when a user's total purchase amount exceeds $100.
+
+For the frontend, I'll need to update the profile component to conditionally render the star SVG. The backend API should return the total purchase amount with the user data so the frontend can determine whether to show the star. I think we'll also need to query the database to calculate the sum of all purchases for each user.
+"""
+           , "L3": """
+Implement VIP status indicator with the following specifications:
+
+Database Layer:
+
+Add computed field or view to aggregate purchases.amount by user_id where SUM(amount) > 100
+
+REST API:
+
+Extend the user profile endpoint (likely /api/users/:id) response schema to include isVip: boolean or totalPurchases: number
+
+Implement business logic in the user service to calculate VIP eligibility
+
+Angular Frontend:
+
+Update the user profile component template to conditionally render <svg data-icon="star"> adjacent to the username binding
+
+Add *ngIf directive checking the isVip property from the user model
+
+Position the SVG using flexbox with appropriate margin-right spacing
+
+Ensure the component's TypeScript interface includes the new VIP field from the API response
+"""
+           }
 }
 
 # Define test commands for each requirement
@@ -83,6 +300,7 @@ def run_amazonq(prompt):
     env["Q_FAKE_IS_REMOTE"] = "1"
     
     with open(log_file, "w") as f:
+        f.write(f"{prompt}\n\n")
         result = subprocess.run(
             cmd,
             cwd=DEMO_APP,
