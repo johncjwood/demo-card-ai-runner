@@ -62,6 +62,14 @@ def copy_context(context):
             os.path.join(rules_folder, "CLAUDE_PERSONA.md")
         )
 
+def stop_all_docker():
+    """Stop all running docker containers"""
+    subprocess.run(
+        "docker stop $(docker ps -q)",
+        shell=True,
+        capture_output=True
+    )
+
 def run_amazonq(prompt):
     """Step 3 & 4: Run AmazonQ CLI with prompt, log output"""
     log_file = os.path.join(DEMO_APP, "LOG.txt")
@@ -140,8 +148,8 @@ def run_tests(requirement):
         capture_output=True
     )
     
-    # Check if all tests succeeded
-    return result.returncode == 0 and "failed" not in result.stdout.lower()
+    # Check if all tests succeeded - test-runner.js exits with code 1 on failure
+    return result.returncode == 0
 
 def load_results():
     """Load existing results from CSV"""
@@ -221,6 +229,9 @@ def main():
                 
                 # Step 2: Copy context
                 copy_context(context)
+                
+                # Step 2.5: Stop all docker containers
+                stop_all_docker()
                 
                 # Step 3 & 4: Run AmazonQ
                 run_amazonq(prompt)
