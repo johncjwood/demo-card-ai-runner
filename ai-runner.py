@@ -13,6 +13,7 @@ RESULTS_FILE = os.path.join(RUNNER_FOLDER, "results.csv")
 
 # Define prompts for each requirement and level
 PROMPTS = {
+    "R0": {"L1": "No prompt.", "L2": "No prompt.", "L3": "No prompt."},
     "R1": {
         "L1": "On the initial page, we see -1 as the total cards. \nUpdate it to be -2.",
         "L2": "On the dashboard page, the default behavior is to display -1 as the total cards. \nUpdate it to be -2.",
@@ -28,13 +29,14 @@ PROMPTS = {
 
 # Define test commands for each requirement
 TEST_COMMANDS = {
+    "R0": "node test-runner.js 100 200 300 310 350 360 390 395 400 500 600 601 900",
     "R1": "node test-runner.js 100 200 300 310 350 360 390 395 400 500 600 601 901",
-    "R2": "",
-    "R3": "",
-    "R4": "",
-    "R5": "",
-    "R6": "",
-    "R7": ""
+    "R2": "node test-runner.js 100 200 300 310 350 360 390 395 400 500 600 601 902",
+    "R3": "node test-runner.js 100 200 300 310 351 361 390 395 401 500 600 601 900",
+    "R4": "node test-runner.js 100 200 300 310 350 362 390 395 400 500 600 601 900",
+    "R5": "node test-runner.js 100 200 300 310 350 360 390 395 400 500 600 601 650 651 900",
+    "R6": "node test-runner.js 100 200 300 310 350 360 390 395 400 500 600 601 660 661 900",
+    "R7": "node test-runner.js 100 200 300 310 350 360 390 395 400 500 600 601 900 950"
 }
 
 # Define contexts
@@ -116,6 +118,38 @@ def run_tests(requirement):
     # Check if all tests succeeded
     return result.returncode == 0 and "failed" not in result.stdout.lower()
 
+def load_results():
+    """Load existing results from CSV"""
+    results = {}
+    if os.path.exists(RESULTS_FILE):
+        with open(RESULTS_FILE, "r") as f:
+            for line in f:
+                parts = line.strip().split(",")
+                if len(parts) == 4:
+                    req, lvl, ctx, success = parts
+                    results[(req, lvl, ctx)] = int(success)
+    return results
+
+def should_skip(requirement, level, context, results):
+    """Check if test should be skipped based on smaller L or C success"""
+    level_order = ["L1", "L2", "L3"]
+    context_order = ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11", "C12"]
+    
+    current_level_idx = level_order.index(level)
+    current_context_idx = context_order.index(context)
+    
+    # Check smaller L levels with same context
+    for i in range(current_level_idx):
+        if results.get((requirement, level_order[i], context)) == 1:
+            return True
+    
+    # Check smaller C levels with same L
+    for i in range(current_context_idx):
+        if results.get((requirement, level, context_order[i])) == 1:
+            return True
+    
+    return False
+
 def append_results(requirement, level, context, success):
     """Step 6: Append results to results.csv"""
     result_value = 1 if success else 0
@@ -134,8 +168,11 @@ def rename_demo_app(requirement, level, context, success):
     shutil.move(DEMO_APP, new_path)
 
 def main():
-    requirements = ["R1", "R2", "R3", "R4", "R5", "R6", "R7"]
+    requirements = ["R0", "R1", "R2", "R3", "R4", "R5", "R6", "R7"]
     levels = ["L1", "L2", "L3"]
+    
+    # Load existing results once at the start
+    results = load_results()
     
     for requirement in requirements:
         for level in levels:
@@ -145,6 +182,11 @@ def main():
                 # Skip if prompt is not defined
                 if not prompt:
                     print(f"Skipping {requirement}/{level}/{context} - no prompt defined")
+                    continue
+                
+                # Skip if smaller L or C level succeeded
+                if should_skip(requirement, level, context, results):
+                    print(f"Skipping {requirement}/{level}/{context} - smaller L or C succeeded")
                     continue
                 
                 print(f"Running {requirement}/{level}/{context}...")
