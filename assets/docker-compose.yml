@@ -1,0 +1,57 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password1!
+      - POSTGRES_DB=cardapp
+
+  rest-api:
+    build:
+      context: ./rest
+      dockerfile: Dockerfile
+    container_name: rest-api
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://postgres:password1!@postgres:5432/cardapp
+    volumes:
+      - ./frontend/public/assets:/app/assets
+    depends_on:
+      - db-setup
+
+  db-setup:
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    container_name: db-setup
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=cardapp
+      - DB_USER=postgres
+      - DB_PASSWORD=password1!
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    restart: unless-stopped
+    ports:
+      - "80:4200"
+    environment:
+      - NODE_ENV=development
+      - API_URL=http://localhost:3001/api
+    volumes:
+      - ./frontend/src/assets:/app/src/assets
+    depends_on:
+      - rest-api
+

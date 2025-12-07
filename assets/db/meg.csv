@@ -1,0 +1,189 @@
+card_id ,card_set ,card_subset_id,card_name ,color,card_type ,subset_num ,rarity 
+1,MEG,1,Bulbasaur,G,Basic,1,1
+2,MEG,1,Ivysaur,G,Stage 1,2,1
+3,MEG,1,Mega Venusaur ex,G,Stage 2,3,4
+4,MEG,1,Exeggcute,G,Basic,4,1
+5,MEG,1,Exeggutor,G,Stage 1,5,2
+6,MEG,1,Tangela,G,Basic,6,1
+7,MEG,1,Tangrowth,G,Stage 1,7,2
+8,MEG,1,Chikorita,G,Basic,8,1
+9,MEG,1,Bayleef,G,Stage 1,9,1
+10,MEG,1,Meganium,G,Stage 2,10,3
+11,MEG,1,Shuckle,G,Basic,11,2
+12,MEG,1,Celebi,G,Basic,12,2
+13,MEG,1,Seedot,G,Basic,13,1
+14,MEG,1,Nuzleaf,G,Stage 1,14,1
+15,MEG,1,Shiftry,G,Stage 2,15,2
+16,MEG,1,Nincada,G,Basic,16,1
+17,MEG,1,Ninjask,G,Stage 1,17,2
+18,MEG,1,Dhelmise,G,Basic,18,1
+19,MEG,1,Vulpix,F,Basic,19,1
+20,MEG,1,Ninetales,F,Stage 1,20,2
+21,MEG,1,Numel,F,Basic,21,1
+22,MEG,1,Mega Camerupt ex,F,Stage 1,22,4
+23,MEG,1,Litleo,F,Basic,23,1
+24,MEG,1,Pyroar,F,Stage 1,24,2
+25,MEG,1,Volcanion,F,Basic,25,2
+26,MEG,1,Scorbunny,F,Basic,26,1
+27,MEG,1,Raboot,F,Stage 1,27,1
+28,MEG,1,Cinderace,F,Stage 2,28,3
+29,MEG,1,Sizzlipede,F,Basic,29,1
+30,MEG,1,Centiskorch,F,Stage 1,30,2
+31,MEG,1,Chi-Yu,F,Basic,31,2
+32,MEG,1,Mantine,W,Basic,32,1
+33,MEG,1,Corphish,W,Basic,33,1
+34,MEG,1,Kyogre,W,Basic,34,3
+35,MEG,1,Snover,W,Basic,35,1
+36,MEG,1,Mega Abomasnow ex,W,Stage 1,36,4
+37,MEG,1,Clauncher,W,Basic,37,1
+38,MEG,1,Clawitzer,W,Stage 1,38,3
+39,MEG,1,Sobble,W,Basic,39,1
+40,MEG,1,Drizzile,W,Stage 1,40,1
+41,MEG,1,Inteleon,W,Stage 2,41,2
+42,MEG,1,Snom,W,Basic,42,1
+43,MEG,1,Frosmoth,W,Stage 1,43,2
+44,MEG,1,Eiscue,W,Basic,44,1
+45,MEG,1,Magnemite,L,Basic,45,1
+46,MEG,1,Magneton,L,Stage 1,46,1
+47,MEG,1,Magnezone,L,Stage 2,47,2
+48,MEG,1,Raikou,L,Basic,48,3
+49,MEG,1,Electrike,L,Basic,49,1
+50,MEG,1,Mega Manectric ex,L,Stage 1,50,4
+51,MEG,1,Pachirisu,L,Basic,51,1
+52,MEG,1,Helioptile,L,Basic,52,1
+53,MEG,1,Heliolisk,L,Stage 1,53,1
+54,MEG,1,Abra,P,Basic,54,1
+55,MEG,1,Kadabra,P,Stage 1,55,2
+56,MEG,1,Alakazam,P,Stage 2,56,3
+57,MEG,1,Jynx,P,Basic,57,1
+58,MEG,1,Ralts,P,Basic,58,1
+59,MEG,1,Kirlia,P,Stage 1,59,1
+60,MEG,1,Mega Gardevoir ex,P,Stage 2,60,4
+61,MEG,1,Shedinja,P,Stage 1,61,2
+62,MEG,1,Spoink,P,Basic,62,1
+63,MEG,1,Grumpig,P,Stage 1,63,2
+64,MEG,1,Xerneas,P,Basic,64,3
+65,MEG,1,Greavard,P,Basic,65,1
+66,MEG,1,Houndstone,P,Stage 1,66,2
+67,MEG,1,Gimmighoul,P,Basic,67,1
+68,MEG,1,Sandshrew,F,Basic,68,1
+69,MEG,1,Sandslash,F,Stage 1,69,1
+70,MEG,1,Onix,F,Basic,70,1
+71,MEG,1,Tyrogue,F,Basic,71,1
+72,MEG,1,Makuhita,F,Basic,72,1
+73,MEG,1,Hariyama,F,Stage 1,73,3
+74,MEG,1,Lunatone,F,Basic,74,3
+75,MEG,1,Solrock,F,Basic,75,2
+76,MEG,1,Riolu,F,Basic,76,1
+77,MEG,1,Mega Lucario ex,F,Stage 1,77,4
+78,MEG,1,Croagunk,F,Basic,78,1
+79,MEG,1,Toxicroak,F,Stage 1,79,1
+80,MEG,1,Marshadow,F,Basic,80,2
+81,MEG,1,Stonjourner,F,Basic,81,2
+82,MEG,1,Nacli,F,Basic,82,1
+83,MEG,1,Naclstack,F,Stage 1,83,1
+84,MEG,1,Garganacl,F,Stage 2,84,2
+85,MEG,1,Crawdaunt,D,Stage 1,85,2
+86,MEG,1,Mega Absol ex,D,Basic,86,4
+87,MEG,1,Spiritomb,D,Basic,87,2
+88,MEG,1,Yveltal,D,Basic,88,3
+89,MEG,1,Nickit,D,Basic,89,1
+90,MEG,1,Thievul,D,Stage 1,90,1
+91,MEG,1,Shroodle,D,Basic,91,1
+92,MEG,1,Grafaiai,D,Stage 1,92,1
+93,MEG,1,Steelix,M,Stage 1,93,3
+94,MEG,1,Mega Mawile ex,M,Basic,94,4
+95,MEG,1,Dialga,M,Basic,95,3
+96,MEG,1,Tinkatink,M,Basic,96,1
+97,MEG,1,Tinkatuff,M,Stage 1,97,1
+98,MEG,1,Tinkaton,M,Stage 2,98,2
+99,MEG,1,Gholdengo,M,Stage 1,99,2
+100,MEG,1,Mega Latias ex,R,Basic,100,4
+101,MEG,1,Latios,R,Basic,101,2
+102,MEG,1,Spearow,C,Basic,102,1
+103,MEG,1,Fearow,C,Stage 1,103,1
+104,MEG,1,Mega Kangaskhan ex,C,Basic,104,4
+105,MEG,1,Delibird,C,Basic,105,1
+106,MEG,1,Miltank,C,Basic,106,1
+107,MEG,1,Buneary,C,Basic,107,1
+108,MEG,1,Lopunny,C,Stage 1,108,1
+109,MEG,1,Yungoos,C,Basic,109,1
+110,MEG,1,Gumshoos,C,Stage 1,110,2
+111,MEG,1,Stufful,C,Basic,111,1
+112,MEG,1,Bewear,C,Stage 1,112,1
+113,MEG,1,Acerola's Mischief,T,Supporter,113,2
+114,MEG,1,Boss's Orders,T,Supporter,114,2
+115,MEG,1,Energy Switch,T,Item,115,1
+116,MEG,1,Fighting Gong,T,Item,116,2
+117,MEG,1,Forest of Vitality,T,Stadium,117,2
+118,MEG,1,Iron Defender,T,Item,118,2
+119,MEG,1,Lillie's Determination,T,Supporter,119,2
+120,MEG,1,Lt. Surge's Bargain,T,Supporter,120,2
+121,MEG,1,Mega Signal,T,Item,121,2
+122,MEG,1,Mystery Garden,T,Stadium,122,2
+123,MEG,1,Pok mon Center Lady,T,Supporter,123,1
+124,MEG,1,Premium Power Pro,T,Item,124,2
+125,MEG,1,Rare Candy,T,Item,125,1
+126,MEG,1,Repel,T,Item,126,2
+127,MEG,1,Risky Ruins,T,Stadium,127,2
+128,MEG,1,Strange Timepiece,T,Item,128,2
+129,MEG,1,Surfing Beach,T,Stadium,129,2
+130,MEG,1,Switch,T,Item,130,1
+131,MEG,1,Ultra Ball,T,Item,131,1
+132,MEG,1,Wally's Compassion,T,Supporter,132,2
+133,MEG,1,Bulbasaur,G,Basic,133,5
+134,MEG,1,Ivysaur,G,Stage 1,134,5
+135,MEG,1,Exeggutor,G,Stage 1,135,5
+136,MEG,1,Shuckle,G,Basic,136,5
+137,MEG,1,Ninjask,G,Stage 1,137,5
+138,MEG,1,Vulpix,F,Basic,138,5
+139,MEG,1,Litleo,F,Basic,139,5
+140,MEG,1,Snover,W,Basic,140,5
+141,MEG,1,Clawitzer,W,Stage 1,141,5
+142,MEG,1,Inteleon,W,Stage 2,142,5
+143,MEG,1,Helioptile,L,Basic,143,5
+144,MEG,1,Shedinja,P,Stage 1,144,5
+145,MEG,1,Houndstone,P,Basic,145,5
+146,MEG,1,Marshadow,F,Basic,146,5
+147,MEG,1,Garganacl,F,Stage 2,147,5
+148,MEG,1,Spiritomb,D,Basic,148,5
+149,MEG,1,Shroodle,D,Basic,149,5
+150,MEG,1,Steelix,M,Stage 1,150,5
+151,MEG,1,Spearow,C,Basic,151,5
+152,MEG,1,Delibird,C,Basic,152,5
+153,MEG,1,Gumshoos,C,Stage 1,153,5
+154,MEG,1,Stufful,C,Basic,154,5
+155,MEG,1,Mega Venusaur ex,G,Stage 2,155,6
+156,MEG,1,Mega Camerupt ex,F,Stage 1,156,6
+157,MEG,1,Mega Abomasnow ex,W,Stage 1,157,6
+158,MEG,1,Mega Manectric ex,L,Stage 1,158,6
+159,MEG,1,Mega Gardevoir ex,P,Stage 2,159,6
+160,MEG,1,Mega Lucario ex,F,Stage 1,160,6
+161,MEG,1,Mega Absol ex,D,Basic,161,6
+162,MEG,1,Mega Mawile ex,M,Basic,162,6
+163,MEG,1,Mega Latias ex,R,Basic,163,6
+164,MEG,1,Mega Kangaskhan ex,C,Basic,164,6
+165,MEG,1,Acerola's Mischief,T,Supporter,165,6
+166,MEG,1,Air Balloon,T,Tool,166,6
+167,MEG,1,Buddy-Buddy Poffin,T,Item,167,6
+168,MEG,1,Fighting Gong,T,Item,168,6
+169,MEG,1,Lillie's Determination,T,Supporter,169,6
+170,MEG,1,Lt. Surge's Bargain,T,Supporter,170,6
+171,MEG,1,Mega Signal,T,Item,171,6
+172,MEG,1,Mystery Garden,T,Stadium,172,6
+173,MEG,1,Night Stretcher,T,Item,173,6
+174,MEG,1,Premium Power Pro,T,Item,174,6
+175,MEG,1,Rare Candy,T,Item,175,6
+176,MEG,1,Wally's Compassion,T,Supporter,176,6
+177,MEG,1,Mega Venusaur ex,G,Stage 2,177,7
+178,MEG,1,Mega Gardevoir ex,P,Stage 2,178,7
+179,MEG,1,Mega Lucario ex,F,Stage 1,179,7
+180,MEG,1,Mega Absol ex,D,Basic,180,7
+181,MEG,1,Mega Latias ex,R,Basic,181,7
+182,MEG,1,Mega Kangaskhan ex,C,Basic,182,7
+183,MEG,1,Acerola's Mischief,T,Supporter,183,7
+184,MEG,1,Lillie's Determination,T,Supporter,184,7
+185,MEG,1,Lt. Surge's Bargain,T,Supporter,185,7
+186,MEG,1,Wally's Compassion,T,Supporter,186,7
+187,MEG,1,Mega Gardevoir ex,P,Stage 2,187,8
+188,MEG,1,Mega Lucario ex,F,Stage 1,188,8

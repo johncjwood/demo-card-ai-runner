@@ -1,0 +1,174 @@
+card_id ,card_set ,card_subset_id,card_name ,color,subset_num ,card_type ,card_subset_id,rarity 
+189,wht,2,Sewaddle,G,50,Basic,1,1
+190,wht,2,Swadloon,G,80,Stage 1,2,1
+191,wht,2,Leavanny,G,130,Stage 2,3,2
+192,wht,2,Cottonee,G,60,Basic,4,1
+193,wht,2,Whimsicott ex,G,230,Stage 1,5,4
+194,wht,2,Deerling,G,70,Basic,6,1
+195,wht,2,Sawsbuck,G,130,Stage 1,7,2
+196,wht,2,Shelmet,G,60,Basic,8,1
+197,wht,2,Accelgor,G,100,Stage 1,9,2
+198,wht,2,Virizion,G,120,Basic,10,3
+199,wht,2,Tepig,F,70,Basic,11,1
+200,wht,2,Pignite,F,110,Stage 1,12,1
+201,wht,2,Emboar,F,180,Stage 2,13,3
+202,wht,2,Pansear,F,70,Basic,14,1
+203,wht,2,Simisear,F,100,Stage 1,15,2
+204,wht,2,Litwick,F,120,Basic,16,1
+205,wht,2,Lampent,F,60,Stage 1,17,1
+206,wht,2,Chandelure,F,80,Stage 2,18,3
+207,wht,2,Heatmor,F,150,Basic,19,2
+208,wht,2,Reshiram ex,F,230,Basic,20,4
+209,wht,2,Oshawott,W,70,Basic,21,1
+210,wht,2,Dewott,W,100,Stage 1,22,1
+211,wht,2,Samurott,W,160,Stage 2,23,3
+212,wht,2,Basculin,W,90,Basic,24,1
+213,wht,2,Ducklett,W,70,Basic,25,1
+214,wht,2,Swanna,W,120,Stage 1,26,2
+215,wht,2,Vanillite,W,60,Basic,27,1
+216,wht,2,Vanillish,W,90,Stage 1,28,1
+217,wht,2,Vanilluxe,W,150,Stage 2,29,2
+218,wht,2,Keldeo ex,W,210,Basic,30,4
+219,wht,2,Blitzle,L,60,Basic,31,1
+220,wht,2,Zebstrika,L,120,Stage 1,32,2
+221,wht,2,Joltik,L,40,Basic,33,1
+222,wht,2,Galvantula,L,90,Stage 1,34,2
+223,wht,2,Stunfisk,L,110,Basic,35,2
+224,wht,2,Woobat,P,60,Basic,36,1
+225,wht,2,Swoobat,P,90,Stage 1,37,2
+226,wht,2,Sigilyph,P,120,Basic,38,2
+227,wht,2,Yamask,P,70,Basic,39,1
+228,wht,2,Cofagrigus,P,120,Stage 1,40,3
+229,wht,2,Gothita,P,70,Basic,41,1
+230,wht,2,Gothorita,P,90,Stage 1,42,1
+231,wht,2,Gothitelle,P,150,Stage 2,43,3
+232,wht,2,Frillish,P,80,Basic,44,1
+233,wht,2,Jellicent ex,P,270,Stage 1,45,4
+234,wht,2,Roggenrola,F,80,Basic,46,1
+235,wht,2,Boldore,F,110,Stage 1,47,1
+236,wht,2,Gigalith,F,170,Stage 2,48,2
+237,wht,2,Sawk,F,110,Basic,49,2
+238,wht,2,Archen,F,80,Stage 1,50,2
+239,wht,2,Archeops,F,140,Stage 2,51,3
+240,wht,2,Mienfoo,F,60,Basic,52,1
+241,wht,2,Mienshao,F,100,Stage 1,53,2
+242,wht,2,Terrakion,F,140,Basic,54,3
+243,wht,2,Purrloin,D,60,Basic,55,1
+244,wht,2,Liepard,D,110,Stage 1,56,2
+245,wht,2,Scraggy,D,70,Basic,57,1
+246,wht,2,Scrafty,D,120,Stage 1,58,2
+247,wht,2,Trubbish,D,70,Basic,59,1
+248,wht,2,Garbodor,D,140,Stage 1,60,2
+249,wht,2,Zorua,D,70,Basic,61,1
+250,wht,2,Zoroark,D,120,Stage 1,62,3
+251,wht,2,Vullaby,D,70,Basic,63,1
+252,wht,2,Mandibuzz,D,110,Stage 1,64,2
+253,wht,2,Deino,D,80,Basic,65,1
+254,wht,2,Zweilous,D,110,Stage 1,66,1
+255,wht,2,Hydreigon ex,D,330,Stage 2,67,4
+256,wht,2,Ferroseed,M,70,Basic,68,1
+257,wht,2,Ferrothorn,M,140,Stage 1,69,2
+258,wht,2,Durant,M,110,Basic,70,2
+259,wht,2,Druddigon,R,120,Basic,71,2
+260,wht,2,Patrat,C,60,Basic,72,1
+261,wht,2,Watchog,C,90,Stage 1,73,2
+262,wht,2,Lillipup,C,60,Basic,74,1
+263,wht,2,Herdier,C,90,Stage 1,75,1
+264,wht,2,Stoutland,C,160,Stage 2,76,2
+265,wht,2,Bouffalant ex,C,220,Basic,77,4
+266,wht,2,Tornadus,C,120,Basic,78,3
+267,wht,2,Antique Plume Fossil,T,,Item,79,1
+268,wht,2,Brave Bangle,T,,Tool,80,2
+269,wht,2,Cheren,T,,Supporter,81,2
+270,wht,2,Energy Retrieval,T,,Item,82,2
+271,wht,2,Harlequin,T,,Supporter,83,2
+272,wht,2,Hilda,T,,Supporter,84,2
+273,wht,2,Tool Scrapper,T,,Item,85,2
+274,wht,2,Ignition Energy,#N/A,,Special Energy,86,2
+275,wht,2,Sewaddle,G,50,Basic,87,5
+276,wht,2,Swadloon,G,80,Stage 1,88,5
+277,wht,2,Leavanny,G,130,Stage 2,89,5
+278,wht,2,Cottonee,G,60,Basic,90,5
+279,wht,2,Deerling,G,70,Basic,91,5
+280,wht,2,Sawsbuck,G,130,Stage 1,92,5
+281,wht,2,Shelmet,G,60,Basic,93,5
+282,wht,2,Accelgor,G,100,Stage 1,94,5
+283,wht,2,Virizion,G,120,Basic,95,5
+284,wht,2,Tepig,F,70,Basic,96,5
+285,wht,2,Pignite,F,110,Stage 1,97,5
+286,wht,2,Emboar,F,180,Stage 2,98,5
+287,wht,2,Pansear,F,70,Basic,99,5
+288,wht,2,Simisear,F,100,Stage 1,100,5
+289,wht,2,Litwick,F,120,Basic,101,5
+290,wht,2,Lampent,F,60,Stage 1,102,5
+291,wht,2,Chandelure,F,80,Stage 2,103,5
+292,wht,2,Heatmor,F,150,Basic,104,5
+293,wht,2,Oshawott,W,70,Basic,105,5
+294,wht,2,Dewott,W,100,Stage 1,106,5
+295,wht,2,Samurott,W,160,Stage 2,107,5
+296,wht,2,Basculin,W,90,Basic,108,5
+297,wht,2,Ducklett,W,70,Basic,109,5
+298,wht,2,Swanna,W,120,Stage 1,110,5
+299,wht,2,Vanillite,W,60,Basic,111,5
+300,wht,2,Vanillish,W,90,Stage 1,112,5
+301,wht,2,Vanilluxe,W,150,Stage 2,113,5
+302,wht,2,Blitzle,L,60,Basic,114,5
+303,wht,2,Zebstrika,L,120,Stage 1,115,5
+304,wht,2,Joltik,L,40,Basic,116,5
+305,wht,2,Galvantula,L,90,Stage 1,117,5
+306,wht,2,Stunfisk,L,110,Basic,118,5
+307,wht,2,Woobat,P,60,Basic,119,5
+308,wht,2,Swoobat,P,90,Stage 1,120,5
+309,wht,2,Sigilyph,P,120,Basic,121,5
+310,wht,2,Yamask,P,70,Basic,122,5
+311,wht,2,Cofagrigus,P,120,Stage 1,123,5
+312,wht,2,Gothita,P,70,Basic,124,5
+313,wht,2,Gothorita,P,90,Stage 1,125,5
+314,wht,2,Frillish,P,80,Basic,126,5
+315,wht,2,Roggenrola,F,80,Basic,127,5
+316,wht,2,Boldore,F,110,Stage 1,128,5
+317,wht,2,Gigalith,F,170,Stage 2,129,5
+318,wht,2,Sawk,F,110,Basic,130,5
+319,wht,2,Archen,F,80,Stage 1,131,5
+320,wht,2,Archeops,F,140,Stage 2,132,5
+321,wht,2,Mienfoo,F,60,Basic,133,5
+322,wht,2,Mienshao,F,100,Stage 1,134,5
+323,wht,2,Terrakion,F,140,Basic,135,5
+324,wht,2,Purrloin,D,60,Basic,136,5
+325,wht,2,Liepard,D,110,Stage 1,137,5
+326,wht,2,Scraggy,D,70,Basic,138,5
+327,wht,2,Scrafty,D,120,Stage 1,139,5
+328,wht,2,Trubbish,D,70,Basic,140,5
+329,wht,2,Garbodor,D,140,Stage 1,141,5
+330,wht,2,Zorua,D,70,Basic,142,5
+331,wht,2,Zoroark,D,120,Stage 1,143,5
+332,wht,2,Vullaby,D,70,Basic,144,5
+333,wht,2,Mandibuzz,D,110,Stage 1,145,5
+334,wht,2,Deino,D,80,Basic,146,5
+335,wht,2,Zweilous,D,110,Stage 1,147,5
+336,wht,2,Ferroseed,M,70,Basic,148,5
+337,wht,2,Ferrothorn,M,140,Stage 1,149,5
+338,wht,2,Durant,M,110,Basic,150,5
+339,wht,2,Druddigon,R,120,Basic,151,5
+340,wht,2,Patrat,C,60,Basic,152,5
+341,wht,2,Watchog,C,90,Stage 1,153,5
+342,wht,2,Lillipup,C,60,Basic,154,5
+343,wht,2,Herdier,C,90,Stage 1,155,5
+344,wht,2,Stoutland,C,160,Stage 2,156,5
+345,wht,2,Whimsicott ex,G,230,Stage 1,157,6
+346,wht,2,Reshiram ex,F,230,Basic,158,6
+347,wht,2,Keldeo ex,W,210,Basic,159,6
+348,wht,2,Jellicent ex,P,270,Stage 1,160,6
+349,wht,2,Hydreigon ex,D,330,Stage 2,161,6
+350,wht,2,Bouffalant ex,C,220,Basic,162,6
+351,wht,2,Harlequin,T,,Supporter,163,6
+352,wht,2,Hilda,T,,Supporter,164,6
+353,wht,2,Whimsicott ex,G,230,Stage 1,165,7
+354,wht,2,Reshiram ex,F,230,Basic,166,7
+355,wht,2,Keldeo ex,W,210,Basic,167,7
+356,wht,2,Jellicent ex,P,270,Stage 1,168,7
+357,wht,2,Hydreigon ex,D,330,Stage 2,169,7
+358,wht,2,Bouffalant ex,C,220,Basic,170,7
+359,wht,2,Hilda,T,,Supporter,171,7
+360,wht,2,Victini,F,80,Basic,172,8
+361,wht,2,Reshiram ex,F,230,Basic,173,8

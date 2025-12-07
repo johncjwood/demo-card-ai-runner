@@ -1,0 +1,15 @@
+{
+  "name": "card-app-testing",
+  "version": "1.0.0",
+  "description": "Test automation for card collection app",
+  "main": "test-runner.js",
+  "scripts": {
+    "test": "node test-runner.js"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.40.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.40.0"
+  }
+}
