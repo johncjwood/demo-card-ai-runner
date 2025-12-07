@@ -68,7 +68,7 @@ def run_amazonq(prompt):
     
     # AmazonQ CLI command
     q_cmd = os.path.join(Q_BIN_FOLDER, "q")
-    cmd = [q_cmd, "chat", "--trust-all-tools", "--no-interactive", "--prompt", prompt]
+    cmd = [q_cmd, "chat", "--trust-all-tools", "--no-interactive", prompt]
     
     # Inherit environment and add Q_FAKE_IS_REMOTE if needed
     env = os.environ.copy()
@@ -120,6 +120,24 @@ def run_tests(requirement):
         cwd=os.path.join(DEMO_APP, "testing"),
         capture_output=True,
         text=True
+    )
+    
+    # Append test results to log file
+    log_file = os.path.join(DEMO_APP, "LOG.txt")
+    with open(log_file, "a") as f:
+        f.write("\n\n=== TEST RESULTS ===\n")
+        f.write(f"Command: {test_cmd}\n")
+        f.write(f"Exit Code: {result.returncode}\n")
+        f.write(f"Output:\n{result.stdout}\n")
+        if result.stderr:
+            f.write(f"Errors:\n{result.stderr}\n")
+    
+    # Tear down docker environment
+    subprocess.run(
+        "docker-compose down",
+        shell=True,
+        cwd=DEMO_APP,
+        capture_output=True
     )
     
     # Check if all tests succeeded
