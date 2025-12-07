@@ -4,6 +4,7 @@ import subprocess
 import sys
 
 # Configuration
+Q_BIN_FOLDER = "/home/john/.local/bin/"
 CODE_FOLDER = "/code/"
 DEMO_APP = os.path.join(CODE_FOLDER, "demo-card-app")
 DEMO_APP_ORIG = os.path.join(CODE_FOLDER, "demo-card-app-orig")
@@ -66,7 +67,8 @@ def run_amazonq(prompt):
     log_file = os.path.join(DEMO_APP, "LOG.txt")
     
     # AmazonQ CLI command with unsafe mode
-    cmd = ["q", "chat", "--unsafe", "--prompt", prompt]
+    q_cmd = os.path.join(Q_BIN_FOLDER, "q")
+    cmd = [q_cmd, "chat", "--unsafe", "--prompt", prompt]
     
     with open(log_file, "w") as f:
         result = subprocess.run(
