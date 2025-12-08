@@ -4,6 +4,7 @@ import subprocess
 import sys
 import time
 import requests
+import argparse
 
 # Configuration
 Q_BIN_FOLDER = "/home/john/.local/bin/"
@@ -517,16 +518,20 @@ def run_amazonq(prompt):
     
     with open(log_file, "w") as f:
         f.write(f"{prompt}\n\n")
-        result = subprocess.run(
-            cmd,
-            cwd=DEMO_APP,
-            stdout=f,
-            stderr=subprocess.STDOUT,
-            text=True,
-            env=env
-        )
-    
-    return result.returncode == 0
+        try:
+            result = subprocess.run(
+                cmd,
+                cwd=DEMO_APP,
+                stdout=f,
+                stderr=subprocess.STDOUT,
+                text=True,
+                env=env,
+                timeout=1200
+            )
+            return result.returncode == 0
+        except subprocess.TimeoutExpired:
+            f.write("\n\n=== TIMEOUT: Process exceeded 20 minutes ===\n")
+            return False
 
 def copy_test_assets():
     """Step 5a: Copy test assets"""
@@ -631,16 +636,46 @@ def rename_demo_app(requirement, level, context, success):
     
     shutil.move(DEMO_APP, new_path)
 
+def parse_start_position(start_from):
+    """Parse R#/L#/C# format and validate"""
+    parts = start_from.split('/')
+    if len(parts) != 3:
+        raise ValueError(f"Invalid format: {start_from}. Expected R#/L#/C#")
+    req, lvl, ctx = parts
+    if req not in ["R0", "R1", "R2", "R3", "R4", "R5", "R6", "R7"]:
+        raise ValueError(f"Invalid requirement: {req}")
+    if lvl not in ["L1", "L2", "L3"]:
+        raise ValueError(f"Invalid level: {lvl}")
+    if ctx not in CONTEXTS:
+        raise ValueError(f"Invalid context: {ctx}")
+    return req, lvl, ctx
+
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--start-from', help='Start from position (e.g., R5/L3/C6)')
+    args = parser.parse_args()
+    
     requirements = ["R0", "R1", "R2", "R3", "R4", "R5", "R6", "R7"]
     levels = ["L1", "L2", "L3"]
+    
+    start_req, start_lvl, start_ctx = None, None, None
+    if args.start_from:
+        start_req, start_lvl, start_ctx = parse_start_position(args.start_from)
     
     # Load existing results once at the start
     results = load_results()
     
+    skip_mode = start_req is not None
+    
     for requirement in requirements:
         for level in levels:
             for context in CONTEXTS:
+                if skip_mode:
+                    if requirement == start_req and level == start_lvl and context == start_ctx:
+                        skip_mode = False
+                    else:
+                        continue
+                
                 prompt = PROMPTS[requirement][level]
                 
                 # Skip if prompt is not defined
