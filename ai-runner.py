@@ -328,6 +328,16 @@ def copy_context(context, requirement=None):
             os.path.join(ASSETS_FOLDER, "DBConnect.md"),
             os.path.join(rules_folder, "DBConnect.md")
         )
+        # Copy db folder contents
+        db_src = os.path.join(ASSETS_FOLDER, "db")
+        db_dst = os.path.join(DEMO_APP, "db")
+        shutil.copytree(db_src, db_dst)
+
+        # Copy docker-compose.yml
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "docker-compose.yml"),
+            os.path.join(DEMO_APP, "docker-compose.yml")
+        )
     elif context == "C7":
         rules_folder = os.path.join(DEMO_APP, ".amazonq", "rules")
         os.makedirs(rules_folder, exist_ok=True)
@@ -350,6 +360,16 @@ def copy_context(context, requirement=None):
         shutil.copy(
             os.path.join(ASSETS_FOLDER, "schema_search.py"),
             os.path.join(DEMO_APP, "schema_search.py")
+        )
+        # Copy db folder contents
+        db_src = os.path.join(ASSETS_FOLDER, "db")
+        db_dst = os.path.join(DEMO_APP, "db")
+        shutil.copytree(db_src, db_dst)
+
+        # Copy docker-compose.yml
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "docker-compose.yml"),
+            os.path.join(DEMO_APP, "docker-compose.yml")
         )
     elif context == "C8":
         rules_folder = os.path.join(DEMO_APP, ".amazonq", "rules")
@@ -382,6 +402,16 @@ def copy_context(context, requirement=None):
             os.path.join(ASSETS_FOLDER, "start_service.py"),
             os.path.join(DEMO_APP, "start_service.py")
         )
+        # Copy db folder contents
+        db_src = os.path.join(ASSETS_FOLDER, "db")
+        db_dst = os.path.join(DEMO_APP, "db")
+        shutil.copytree(db_src, db_dst)
+
+        # Copy docker-compose.yml
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "docker-compose.yml"),
+            os.path.join(DEMO_APP, "docker-compose.yml")
+        )
     elif context == "C9":
         rules_folder = os.path.join(DEMO_APP, ".amazonq", "rules")
         os.makedirs(rules_folder, exist_ok=True)
@@ -404,6 +434,16 @@ def copy_context(context, requirement=None):
         shutil.copy(
             os.path.join(ASSETS_FOLDER, "schema_search.py"),
             os.path.join(DEMO_APP, "schema_search.py")
+        )
+        # Copy db folder contents
+        db_src = os.path.join(ASSETS_FOLDER, "db")
+        db_dst = os.path.join(DEMO_APP, "db")
+        shutil.copytree(db_src, db_dst)
+
+        # Copy docker-compose.yml
+        shutil.copy(
+            os.path.join(ASSETS_FOLDER, "docker-compose.yml"),
+            os.path.join(DEMO_APP, "docker-compose.yml")
         )
         # Copy TESTING.md with test command prepended
         testing_md_src = os.path.join(ASSETS_FOLDER, "TESTING.md")
@@ -493,9 +533,13 @@ def copy_test_assets():
     # Copy db folder contents
     db_src = os.path.join(ASSETS_FOLDER, "db")
     db_dst = os.path.join(DEMO_APP, "db")
-    if os.path.exists(db_dst):
-        shutil.rmtree(db_dst)
     shutil.copytree(db_src, db_dst)
+
+    # Copy docker-compose.yml
+    shutil.copy(
+        os.path.join(ASSETS_FOLDER, "docker-compose.yml"),
+        os.path.join(DEMO_APP, "docker-compose.yml")
+    )
     
     # Copy testing folder
     testing_src = os.path.join(ASSETS_FOLDER, "testing")
@@ -504,11 +548,7 @@ def copy_test_assets():
         shutil.rmtree(testing_dst)
     shutil.copytree(testing_src, testing_dst)
     
-    # Copy docker-compose.yml
-    shutil.copy(
-        os.path.join(ASSETS_FOLDER, "docker-compose.yml"),
-        os.path.join(DEMO_APP, "docker-compose.yml")
-    )
+    
 
 def run_tests(requirement):
     """Step 5b: Run requirement-specific tests"""
