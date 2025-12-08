@@ -331,7 +331,7 @@ def copy_context(context, requirement=None):
         # Copy db folder contents
         db_src = os.path.join(ASSETS_FOLDER, "db")
         db_dst = os.path.join(DEMO_APP, "db")
-        shutil.copytree(db_src, db_dst)
+        shutil.copytree(db_src, db_dst, dirs_exist_ok=True)
 
         # Copy docker-compose.yml
         shutil.copy(
@@ -364,7 +364,7 @@ def copy_context(context, requirement=None):
         # Copy db folder contents
         db_src = os.path.join(ASSETS_FOLDER, "db")
         db_dst = os.path.join(DEMO_APP, "db")
-        shutil.copytree(db_src, db_dst)
+        shutil.copytree(db_src, db_dst, dirs_exist_ok=True)
 
         # Copy docker-compose.yml
         shutil.copy(
@@ -405,7 +405,7 @@ def copy_context(context, requirement=None):
         # Copy db folder contents
         db_src = os.path.join(ASSETS_FOLDER, "db")
         db_dst = os.path.join(DEMO_APP, "db")
-        shutil.copytree(db_src, db_dst)
+        shutil.copytree(db_src, db_dst, dirs_exist_ok=True)
 
         # Copy docker-compose.yml
         shutil.copy(
@@ -438,7 +438,7 @@ def copy_context(context, requirement=None):
         # Copy db folder contents
         db_src = os.path.join(ASSETS_FOLDER, "db")
         db_dst = os.path.join(DEMO_APP, "db")
-        shutil.copytree(db_src, db_dst)
+        shutil.copytree(db_src, db_dst, dirs_exist_ok=True)
 
         # Copy docker-compose.yml
         shutil.copy(
@@ -533,7 +533,7 @@ def copy_test_assets():
     # Copy db folder contents
     db_src = os.path.join(ASSETS_FOLDER, "db")
     db_dst = os.path.join(DEMO_APP, "db")
-    shutil.copytree(db_src, db_dst)
+    shutil.copytree(db_src, db_dst, dirs_exist_ok=True)
 
     # Copy docker-compose.yml
     shutil.copy(
